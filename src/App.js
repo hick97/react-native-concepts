@@ -23,7 +23,7 @@ export default function App() {
     setRepositories(data);
   }
   async function handleLikeRepository(id) {
-    // Implement "Like Repository" functionality
+    await api.post(`repositories/${id}/like`);
     const index = repositories.findIndex((repository) => repository.id === id);
     const newValue = [...repositories];
     newValue[index].likes += 1;
